@@ -1,2 +1,2 @@
 # MongoLab
-Lab de mongo
+Lab de mongo por Alejandro Rodriguez Sanlee
