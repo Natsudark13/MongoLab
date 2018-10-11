@@ -199,6 +199,8 @@ public class UpdateP2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
    con.updateProductora(ID.getText(), nombre.getText(), fecha.getText(), url.getText());
+   this.setVisible(false);
+   new InterfazPrinc().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

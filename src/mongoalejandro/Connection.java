@@ -150,6 +150,59 @@ public class Connection {
        return x;
     }
     
-    
-    
+      public Vector<Object> consulta5_4(String productora){
+        BasicDBObject query = new BasicDBObject("productora", productora);
+        BasicDBObject x = new BasicDBObject();
+        Vector xx = new Vector();
+        x.put("duracion",1);
+        x.put("_id",0);
+        
+        DBCursor cursor = database.getCollection("Pelicula").find(query, x);
+        float promedio = 0;
+        while (cursor.hasNext()){
+            String actual = cursor.next().get("duracion").toString();
+            
+            int duracion = Integer.parseInt(actual);
+            promedio += duracion;
+        }
+        xx.add("El promedio es: "+promedio/cursor.count());
+        return xx;
+        
+    }
+      
+    public Vector<Object> consulta5_1(String productora){
+        BasicDBObject query = new BasicDBObject("productora", productora);
+        DBCursor cursor = database.getCollection("Pelicula").find(query);
+        Vector xx = new Vector();
+        xx.add("La cantidad de Peliculas que produce esta productora es: " + cursor.count());
+        return xx;
+    }
+      public Vector<Object> consulta5_2(String productora){
+        BasicDBObject query = new BasicDBObject("productora", productora);
+        BasicDBObject x = new BasicDBObject();
+        x.put("nombre",1);
+        x.put("duracion",1);
+        x.put("_id",0);
+        Vector xx = new Vector();
+        DBCursor cursor = database.getCollection("Pelicula").find(query, x).sort(new BasicDBObject("duracion", 1)).limit(1);
+        while (cursor.hasNext()){
+            xx.add("La pelicula con menor duracion es: " + cursor.next());
+        }         
+        return xx;
+    }
+      
+       public Vector<Object> consulta5_3(String productora){
+        BasicDBObject query = new BasicDBObject("productora", productora);
+        BasicDBObject x = new BasicDBObject();
+        x.put("nombre",1);
+        x.put("duracion",1);
+        x.put("_id",0);
+        Vector xx = new Vector();
+        DBCursor cursor = database.getCollection("Pelicula").find(query, x).sort(new BasicDBObject("duracion", -1)).limit(1);
+        while (cursor.hasNext()){
+            xx.add("La pelicula con mayor duracion es: " +cursor.next());
+           
+        }
+        return xx;
+    }
 }

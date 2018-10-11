@@ -90,6 +90,11 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         jButton3.setText("películas estrenadas en un rango  de años específico");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Info de pelicas con una compañía productora en particular");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -106,12 +111,27 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         jButton6.setText("película con la menor duración");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("película con la mayor duración");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Consultas");
 
         jButton8.setText(" la duración promedio por una  compañía productora en particular");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Query");
 
@@ -197,7 +217,10 @@ public class Consultas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+   Vector x = con.consulta5_1(res.getText());
+    
+    DefaultTableModel table = (DefaultTableModel) resT.getModel();
+    table.addRow(x);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void con1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_con1ActionPerformed
@@ -213,6 +236,31 @@ public class Consultas extends javax.swing.JFrame {
     DefaultTableModel table = (DefaultTableModel) resT.getModel();
     table.addRow(x);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    Vector x = con.consulta5_4(res.getText());
+    
+    DefaultTableModel table = (DefaultTableModel) resT.getModel();
+    table.addRow(x);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    Vector x = con.consulta5_3(res.getText());
+    
+    DefaultTableModel table = (DefaultTableModel) resT.getModel();
+    table.addRow(x);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    Vector x = con.consulta5_2(res.getText());
+    
+    DefaultTableModel table = (DefaultTableModel) resT.getModel();
+    table.addRow(x);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

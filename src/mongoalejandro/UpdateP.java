@@ -373,6 +373,8 @@ public class UpdateP extends javax.swing.JFrame {
     private void ingresarDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarDBActionPerformed
         con.updatePelicula(ID.getText(), Nombre.getText(), genero.getText(), director.getText(), franquicia.getText(), pais.getText(), fecha.getText(), Duracion.getText(),
         product.getText(), a1.getText(), a2.getText(), a3.getText());
+        this.setVisible(false);
+        new InterfazPrinc().setVisible(true);
         
     }//GEN-LAST:event_ingresarDBActionPerformed
 
